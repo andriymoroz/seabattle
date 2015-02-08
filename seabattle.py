@@ -1,3 +1,4 @@
+import sys
 import random
 from statemachine import StateMachine
 from player import Player
@@ -85,6 +86,7 @@ class Game:
 
 
 if __name__ == "__main__":
-    g = Game()
-#    g.start_game()
-
+    try:
+        g = Game()
+    except KeyboardInterrupt:
+        sys.exit()

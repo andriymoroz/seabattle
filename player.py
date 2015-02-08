@@ -36,7 +36,8 @@ class Player:
         return 1, 1
 
     def set_move(self, x, y):
-        if self.board[x][y] == board.SHIP:
+        #if self.board[x][y] == board.SHIP:
+        if self.board.get_cell(self.board.OWN, x, y) == board.SHIP:
             return "inj"
         else:
             return "miss"
