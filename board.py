@@ -49,7 +49,7 @@ class Field:
         self.field = copy.deepcopy(field)
 
     def clear(self):
-        self.field = [[EMPTY for x in range(self.size)] for x in range(self.size)] #self.size*[self.size*[0]]
+        self.field = [[EMPTY for x in range(self.size)] for x in range(self.size)]  # self.size*[self.size*[0]]
         pass
 
     def get_cell(self, x, y):
@@ -73,12 +73,7 @@ class Board:
         self.field = [Field(size), Field(size)]
         self.ships = copy.deepcopy(self.ships_init)
 
-        pass
-
     def clear(self):
-        pass
-
-    def print_board(self):
         pass
 
     def get_size(self):
@@ -86,6 +81,9 @@ class Board:
 
     def get_cell(self, ownership, x, y):
         return self.field[ownership].get_cell(x, y)
+
+    def set_cell(self, ownership, x, y, val):
+        self.field[ownership].set_cell(x, y, val)
 
     def place_ship(self, size, x, y, orientation):
         sx = x - 1
@@ -130,6 +128,6 @@ class Board:
             for x in range(0, self.get_size()):
                 row1 += " " + self.field[self.OWN].get_cell(x, y) + " |"
                 row2 += " " + self.field[self.ENEMY].get_cell(x, y) + " |"
-            print "%2d|%s %2d|%s" % (y+1, row1, y+1, row2)
+            print "%2d|%s %2d|%s" % (y + 1, row1, y + 1, row2)
             print "  +---+---+---+---+---+---+---+---+---+---+   +---+---+---+---+---+---+---+---+---+---+"
 
